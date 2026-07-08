@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraChat - Getting Started Guide</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f4f7f6;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .step-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+            margin-bottom: 20px;
+        }
+        .step-card:hover {
+            transform: translateY(-3px);
+        }
+        .step-number {
+            background-color: #0d6efd;
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+         .hero-section {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark px-4 shadow-sm">
+        <a class="navbar-brand fw-bold" href="index.html">✨ AuraChat</a>
+        <div class="d-flex align-items-center">
+            <a href="index.html" class="btn btn-outline-light btn-sm">Launch App</a>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+            <h1 class="fw-bold display-5">Welcome to AuraChat</h1>
+            <p class="text-muted fs-5 mt-3">AuraChat runs a powerful AI entirely in your web browser. No servers, complete privacy. Follow these 3 simple steps to get started.</p>
+        </div>
+
+    <!-- Guide Content -->
+    <div class="container pb-5" style="max-width: 800px;">
+        
+        <!-- Step 1 -->
+        <div class="card step-card card-body p-4">
+            <div class="step-number">1</div>
+            <h3 class="h4 fw-bold">Download the AI Model</h3>
+            <p class="text-muted">AuraChat requires an AI model file to function. You will need to download the Gemma-4-E2B LiteRT model to your computer.</p>
+            <div class="bg-light p-3 rounded border mb-3">
+                <strong>File Name:</strong> <code>gemma-4-E2B.litertlm</code><br>
+                <strong>Approximate Size:</strong> ~1.3 GB
+            </div>
+            <div>
+                <a href="https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm/tree/main" target="_blank" class="btn btn-primary">
+                    Download from Hugging Face
+                </a>
+            </div>
+            <small class="text-muted mt-2 d-block">Note: Ensure you download the correct `.litertlm` file to your Downloads folder or Desktop.</small>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card step-card card-body p-4">
+            <div class="step-number">2</div>
+            <h3 class="h4 fw-bold">Load the Model into AuraChat</h3>
+            <p class="text-muted">Once the file is downloaded, you need to connect it to the application.</p>
+            <ul>
+                <li>Open the <a href="index.html">AuraChat App</a>.</li>
+                <li>Look at the top navigation bar and click the <strong>+ Model</strong> button.</li>
+                <li>A file picker will open. Locate and select the <code>gemma-4-E2B.litertlm</code> file you just downloaded.</li>
+            </ul>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card step-card card-body p-4">
+            <div class="step-number">3</div>
+            <h3 class="h4 fw-bold">Wait for the Magic (Only Once!)</h3>
+            <p class="text-muted">
+                AuraChat will now save the model securely inside your browser's private storage (OPFS). 
+                <strong>You only have to do this once!</strong> 
+            </p>
+            <p class="text-muted">
+                The next time you open AuraChat, it will instantly load the model from your local cache—no internet connection or re-uploading required. Look for the green <span class="badge bg-success">Model Ready</span> badge in the navigation bar.
+            </p>
+        </div>
+
+        <!-- Extra Info Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card guide-card p-4 bg-light border-0">
+                    <h5 class="fw-bold mb-3">💡 Pro Tips</h5>
+                    <ul class="text-muted mb-0" style="line-height: 1.8;">
+                        <li><strong>Privacy First:</strong> Your chat data and the model file never leave your device. Everything runs locally via WebAssembly.</li>
+                        <li><strong>Performance:</strong> Ensure hardware acceleration is enabled in your browser settings for the fastest response times.</li>
+                        <li><strong>Storage:</strong> If you ever need to clear your browser cache, you might need to re-upload the model file.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Final CTA -->
+        <div class="text-center mt-5">
+            <h4 class="mb-4">Ready to experience local AI?</h4>
+            <a href="index.html" class="btn btn-dark btn-lg px-5 rounded-pill shadow">Open AuraChat Now</a>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

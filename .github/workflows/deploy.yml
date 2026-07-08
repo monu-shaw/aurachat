@@ -1,0 +1,65 @@
+name: Minify and Deploy to GitHub Pages
+
+# Run this workflow every time you push to the main branch
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch: # Allows you to run this manually from the Actions tab
+
+# Set permissions for the GitHub Token to deploy to Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Cancel in-progress runs if you push multiple times quickly
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Create Out Folder and Process Files
+        run: |
+          # Create the production build directory
+          mkdir -p out
+          
+          # Minify the original files
+          npx minify index.html > out/index.html
+          npx minify guide.html > out/guide.html
+          npx minify style.css > out/style.css
+          npx minify script.js > out/script.js
+          
+          # Minify the new PWA configuration files
+          npx minify sw.js > out/sw.js
+          npx minify manifest.json > out/manifest.json
+          
+          # Copy all image files (like icon-192.png) directly into the out folder
+          # We use 'cp' because text minifiers will corrupt image binaries
+          cp *.png out/ || true
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Production Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './out'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
