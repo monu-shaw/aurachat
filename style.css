@@ -4,10 +4,16 @@ body, html {
     background-color: #f4f7f6; 
 }
 
-.chat-container { 
-    display: flex; 
-    flex-direction: column; 
-    height: 100vh; 
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .chat-container {
+        height: 95vh;
+    }
 }
 
 .chat-body { 

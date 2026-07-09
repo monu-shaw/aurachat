@@ -46,11 +46,12 @@ jobs:
           
           # Minify the new PWA configuration files
           npx minify sw.js > out/sw.js
-          npx minify manifest.json > out/manifest.json
+          npx minify site.webmanifest > out/site.webmanifest
           
           # Copy all image files (like icon-192.png) directly into the out folder
           # We use 'cp' because text minifiers will corrupt image binaries
-          cp *.png out/ || true
+          cp fav/*.png out/ || true
+          cp fav/*.ico out/ || true
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4

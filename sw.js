@@ -5,7 +5,10 @@ const ASSETS_TO_CACHE = [
   './guide.html',
   './style.css',
   './script.js',
-  './manifest.json',
+  './site.webmanifest',
+  './favicon.ico',
+  './favicon-32x32.png',
+  './favicon-16x16.png',
   // Cache the Bootstrap and Marked CDN links for true offline use
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
   'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css',
