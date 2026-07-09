@@ -46,7 +46,7 @@ jobs:
           
           # Minify the new PWA configuration files
           npx minify sw.js > out/sw.js
-          npx minify site.webmanifest > out/site.webmanifest
+          cp site.webmanifest out/site.webmanifest
           
           # Copy all image files (like icon-192.png) directly into the out folder
           # We use 'cp' because text minifiers will corrupt image binaries
