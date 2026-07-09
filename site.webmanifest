@@ -2,7 +2,6 @@
   "name": "AuraChat Local AI",
   "short_name": "AuraChat",
   "description": "A private, local AI assistant running completely in your browser.",
-  "start_url": "./", 
   "display": "standalone",
   "background_color": "#f4f7f6",
   "theme_color": "#212529",
